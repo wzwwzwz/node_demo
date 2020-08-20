@@ -1,51 +1,37 @@
-
 let Mock = require("mockjs");
+let issue = require("./issue");
+let auth = require("./auth");
 
+let objfun = {
+    start: function () {
+        console.log("Request handler'start' was called");
+        let data = Mock.mock({
+            status: 200,
+            "data|1-9": [
+                {
+                    "name|5-8": /[a-zA-Z]/,
+                    "key|": "@id()",
+                    "value|0-500": 20,
+                },
+            ],
+        });
 
-function start() {
-    console.log("Request handler'start' was called");
-    let data = Mock.mock({
-        "status": 200,
-        "data|1-9": [{
-            "name|5-8": /[a-zA-Z]/,
-            "id|+1": 1,
-            "value|0-500": 20
-        }]
-    });
+        return data;
+    },
 
-    return data;
-}
+    upload: function () {
+        console.log("Request handler'upload' was called");
+    },
 
-function upload() {
-    console.log("Request handler'upload' was called");
-}
+    noFun: function () {
+        console.log("Request handler'404' was called");
+        let data = Mock.mock({
+            status: 404,
+            data: "骚瑞啊！！！！！！！！！！！！！",
+        });
 
-function getIssue() {
-    console.log("Request handler'start' was called");
-    let data = Mock.mock({
-        "status": 200,
-        "data|1-9": [{
-            "name|5-8": /[a-zA-Z]/,
-            "id|+1": 1,
-            "value|0-500": 20
-        }]
-    });
+        return data;
+    },
+};
 
-    return data;
-}
-
-
-function noFun() {
-    console.log("Request handler'404' was called");
-    let data = Mock.mock({
-        "status": 404,
-        "data": "骚瑞啊！！！！！！！！！！！！！"
-    });
-
-    return data;
-}
-
-exports.start = start;
-exports.upload = upload;
-exports.getIssue = getIssue;
-exports.noFun = noFun;
+module.exports = Object.assign({}, objfun, issue, auth);

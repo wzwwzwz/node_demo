@@ -7,7 +7,7 @@ function start(route, handle) {
     function onRequest(request, response) {
         var pathname = url.parse(request.url).pathname;
 
-        console.log("Request for " + pathname + " received.");
+        // console.log("Request for " + pathname + " received.");
 
         // 阻止二次请求
         if ("/favicon.ico" === pathname) {
@@ -16,7 +16,7 @@ function start(route, handle) {
 
         var returnVal = route(handle, pathname);
 
-        console.log("返回值----------", returnVal);
+        // console.log("返回值----------", returnVal);
 
         var code = 200;
         var hearder = {
