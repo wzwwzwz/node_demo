@@ -1,20 +1,20 @@
 let Mock = require("mockjs");
 
-
+// let objFun = {};
 let objFun = {
-    setPermission: function () {
+
+    setPermission() {
         let data = Mock.mock({
-            "status": 200,
-            "data|1-9": [{
-                "name|5-8": /[a-zA-Z]/,
+            "CODE": 200,
+            "PARAMS": [{
+                "ID|0-5": /[0-9]/,
                 "key|": "@id()",
-                "value|0-500": 20
             }]
         });
 
         return data;
-    }
-};
+    },
 
+};
 
 module.exports = objFun;

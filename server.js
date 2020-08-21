@@ -14,6 +14,15 @@ function start(route, handle) {
             return;
         }
 
+        // timeout
+        request.setTimeout(0.01,function () {
+            let msg = "超时啦。。。";
+
+            console.log(msg);
+            response.end(msg);
+        });
+
+
         var returnVal = route(handle, pathname);
 
         // console.log("返回值----------", returnVal);
@@ -37,7 +46,10 @@ function start(route, handle) {
         response.end(JSON.stringify(res));
     }
 
-    http.createServer(onRequest).listen(3000);
+    var server = http.createServer(onRequest);
+
+    server.listen(3000);
+
     console.log("Server running at http://localhost:3000/");
 }
 

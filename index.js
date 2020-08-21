@@ -11,6 +11,7 @@ handle["/upload"] = reqHandlers.upload;
 // issue
 handle["/getIssue"] = reqHandlers.getIssue;
 handle["/getIssueRep"] = reqHandlers.getIssueRep;
+handle["/getIssueRepRep"] = reqHandlers.getIssueRepRep;
 
 // auth
 handle["/setPermission"] = reqHandlers.setPermission;
