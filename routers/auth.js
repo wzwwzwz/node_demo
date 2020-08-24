@@ -1,7 +1,7 @@
 let Mock = require("mockjs");
 
-// let objFun = {};
-let objFun = {
+
+let objAuth = {
 
     setPermission() {
         let data = Mock.mock({
@@ -17,4 +17,4 @@ let objFun = {
 
 };
 
-module.exports = objFun;
+module.exports = objAuth;

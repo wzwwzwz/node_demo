@@ -16,11 +16,11 @@
 // // console.log('Server running at http://192.168.1.14:8888/');
 
 
-var http = require("http");
+// var http = require("http");
 var url = require("url");
-var util = require("util");
+// var util = require("util");
 //  读取文件按
-var fs = require("fs");
+// var fs = require("fs");
 
 console.log(url);
 
@@ -92,19 +92,19 @@ console.log("Server running at http://localhost:" + host + "/");
 // });
 
 //project mock
-const index = {
-    "xxx/getUserInfo": {
-        mock: () => {
-            return Mock.mock({
-                code: 0,
-                "data|1-9": [{
-                    "nickname|5-8": /[a-zA-Z]/,
-                    "age|0-99": 20
-                }]
-            });
-        }
-    }
-};
+// const index = {
+//     "xxx/getUserInfo": {
+//         mock: () => {
+//             return Mock.mock({
+//                 code: 0,
+//                 "data|1-9": [{
+//                     "nickname|5-8": /[a-zA-Z]/,
+//                     "age|0-99": 20
+//                 }]
+//             });
+//         }
+//     }
+// };
 
 
 // 获取论点

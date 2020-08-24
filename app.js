@@ -16,5 +16,9 @@ handle["/getIssueRepRep"] = reqHandlers.getIssueRepRep;
 // auth
 handle["/setPermission"] = reqHandlers.setPermission;
 
+// exam
+handle["/submitExam"] = reqHandlers.submitExam;
+handle["/getExam"] = reqHandlers.getExam;
+
 
 server.start(router.route, handle);

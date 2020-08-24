@@ -1,7 +1,7 @@
 let Mock = require("mockjs");
 
 
-let objFun = {
+let objIssue = {
     getIssueRep: function () {
         let data = Mock.mock({
             "CODE": "200",
@@ -75,5 +75,5 @@ let objFun = {
 
 };
 
-module.exports = objFun;
+module.exports = objIssue;
 

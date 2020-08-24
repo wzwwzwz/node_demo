@@ -1,7 +1,13 @@
 let Mock = require("mockjs");
-let issue = require("./issue");
-let auth = require("./auth");
 
+
+// function
+let issue = require("./routers/issue");
+let auth = require("./routers/auth");
+let exam = require("./routers/exam");
+
+
+// common
 let objfun = {
     start: function () {
         console.log("Request handler'start' was called");
@@ -34,4 +40,4 @@ let objfun = {
     },
 };
 
-module.exports = Object.assign({}, objfun, issue, auth);
+module.exports = Object.assign({}, objfun, issue, auth, exam);
