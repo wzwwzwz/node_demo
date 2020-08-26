@@ -2,6 +2,9 @@ const fs = require("fs");
 const zlib = require("zlib");
 const path = require("path");
 
+const pako = require("pako");
+const CryptoJS = require("crypto-js");
+
 
 /**
  * @functionName gzipFile
@@ -111,7 +114,55 @@ function ungzipData(bufferParam,callback) {
 }
 
 
-module.exports = {gzipFile,ungzipFile,gzipData,ungzipData};
+// 压缩
+function gzip(str) {
+    // escape(str)  --->压缩前编码，防止中文乱码
+    var binaryString = pako.gzip(escape(str), { to: "string" });
+
+    return binaryString;
+}
+
+function ungzip(key) {
+    // 将二进制字符串转换为字符数组
+    var charData = key.split("").map(function (x) {
+        return x.charCodeAt(0);
+    });
+
+    // console.log("压缩后的文件大小:", charData.join(","));
+
+    // 将数字数组转换成字节数组
+    var binData = new Uint8Array(charData);
+
+    // 解压
+    var data = pako.inflate(binData);
+
+    // 将GunZip ByTAREAR转换回ASCII字符串
+    key = String.fromCharCode.apply(null, new Uint16Array(data));
+
+    // unescape(str)  --->解压后解码，防止中文乱码
+    return unescape(key);
+}
+
+function encrypt(word, keyStr) {
+    keyStr = keyStr || "abcdefgabcdefg12";
+    // Latin1 w8m31+Yy/Nw6thPsMpO5fg==
+    let key = CryptoJS.enc.Utf8.parse(keyStr);
+    let srcs = CryptoJS.enc.Utf8.parse(word);
+    let encrypted = CryptoJS.AES.encrypt(srcs, key, {mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7});
+
+    return encrypted.toString();
+}
+function decrypt(word, keyStr) {
+    keyStr = keyStr || "abcdefgabcdefg12";
+    // Latin1 w8m31+Yy/Nw6thPsMpO5fg==
+    var key = CryptoJS.enc.Utf8.parse(keyStr);
+    var decryptStr = CryptoJS.AES.decrypt(word, key, {mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7});
+
+    return CryptoJS.enc.Utf8.stringify(decryptStr).toString();
+}
+
+
+module.exports = { gzipFile,ungzipFile,gzipData,ungzipData,gzip,ungzip,decrypt,encrypt };
 
 // 压缩文件 gzipFile('./1.txt')
 // 解压文件 ungzipFile('./1.txt.gz')

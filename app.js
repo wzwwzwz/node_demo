@@ -20,5 +20,8 @@ handle["/setPermission"] = reqHandlers.setPermission;
 handle["/submitExam"] = reqHandlers.submitExam;
 handle["/getExam"] = reqHandlers.getExam;
 
+// home
+handle["/heartbeat"] = reqHandlers.heartbeat;
+
 
 server.start(router.route, handle);

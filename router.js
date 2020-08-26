@@ -1,16 +1,9 @@
 const { noFun } = require("./reqHandlers");
 
-function route(handle, pathname) {
-    // console.log("About to route a request for" + pathname);
-
-    // console.log("handle---------",handle);
-    // console.log("路径",pathname);
-    // console.log("方法",handle[pathname]);
-
+function route(handle, pathname, params) {
     if ("function" == typeof handle[pathname]) {
-        return handle[pathname]();
+        return handle[pathname](params);
     }
-    // console.log("no request handler found for" + pathname);
 
     return noFun();
 }
