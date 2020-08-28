@@ -5,6 +5,7 @@ let Mock = require("mockjs");
 let issue = require("./routers/issue");
 let auth = require("./routers/auth");
 let exam = require("./routers/exam");
+let avatar = require("./routers/avatar");
 
 
 // common
@@ -50,4 +51,4 @@ let objfun = {
     }
 };
 
-module.exports = Object.assign({}, objfun, issue, auth, exam);
+module.exports = Object.assign({}, objfun, issue, auth, exam,avatar);

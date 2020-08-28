@@ -23,5 +23,8 @@ handle["/getExam"] = reqHandlers.getExam;
 // home
 handle["/heartbeat"] = reqHandlers.heartbeat;
 
+// avatar
+handle["/uploadAvatar"] = reqHandlers.upload;
+
 
 server.start(router.route, handle);
