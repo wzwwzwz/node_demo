@@ -10,7 +10,7 @@ const CryptoJS = require("crypto-js");
  * @functionName gzipFile
  * @description gzip File
  * @param { String } $src file src
- * @author 巫昭雯
+ * @author wzw
  * @date 2020-08-25 16:05:21
  * @version V1.0
  * @mark The gzip file is in this level folder
@@ -37,7 +37,7 @@ function gzipFile($src) {
  * @functionName ungzipFile
  * @description ungzip File
  * @param { String } $src ungzip File src
- * @author 巫昭雯
+ * @author wzw
  * @date 2020-08-25 16:09:46
  * @version V1.0
  * @mark The ungzip file is in this level folder
@@ -63,7 +63,7 @@ function ungzipFile($src) {
  * @description
  * @param { String } data  || buffer
  * @param { String } callback  || buffer
- * @author 巫昭雯
+ * @author wzw
  * @date 2020-08-25 15:52:37
  * @version V1.0
 */
@@ -88,7 +88,7 @@ function gzipData(data,callback) {
  * @description 解压数据
  * @param { String } bufferParam
  * @param { String } callback
- * @author 巫昭雯
+ * @author wzw
  * @date 2020-08-25 15:54:26
  * @version V1.0
 */
