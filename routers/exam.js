@@ -1,6 +1,7 @@
 
 let Mock = require("mockjs");
 
+
 let objExam = {
     submitExam() {
         let data = Mock.mock({
@@ -15,7 +16,14 @@ let objExam = {
         return data;
     },
 
-    getExam() {
+    getExam(param) {
+        if ("" === param) {
+            return {
+                status: 201,
+                data: "骚瑞啊！！！！！！！！！！！！！",
+            };
+        }
+
         let json = {
             CODE: "200",
             USER: "用户1",

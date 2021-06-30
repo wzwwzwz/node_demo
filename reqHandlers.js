@@ -48,6 +48,22 @@ let objfun = {
         });
 
         return data;
+    },
+    testGetData() {
+        // 使用 mock
+        return Mock.mock({
+            "CODE": "200",
+            "USER": "后台获取用户",
+            "PARAMS|50": [
+                {
+                    "KEY|+1": 1,
+                    "QUESTION": "@csentence(1,20)?",
+                    "OPTION": "@cword(5,25)<br/>@cword(20)<br/>@integer(10, 500)<br/>@integer(1, 30)",
+                    // 题目类型 type "0" === 判断题 || "1" === 单选题 || "2" === 多选题
+                    "TYPE|1": ["0","1","2"]
+                },
+            ]
+        });
     }
 };
 
